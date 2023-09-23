@@ -88,7 +88,7 @@
             label = "TAP_DANCE_0";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp u_grave>, <&kp u_acute>, <&kp u_grave_up>, <&kp u_acute_up>;
+            bindings = <&u_grave>, <&u_acute>, <&u_grave_up>, <&u_acute_up>;
         }
     };
 
