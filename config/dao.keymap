@@ -135,7 +135,7 @@
 
         unicode_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &u_grave 	&u_acute  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &td_uc_u 	&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans  &trans 		&trans
