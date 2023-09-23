@@ -16,6 +16,26 @@
 #define UC_TAP_MS 10
 #define UC_WAIT_MS 10
 
+#define HELPER_STRINGIFY(x) #x
+
+#define UC_MACRO(name, char_0, char_1, char_2, char_3) \
+    / { \
+        macros { \
+            name: name { \
+                compatible = "zmk,behavior-macro"; \
+                label = HELPER_STRINGIFY(ucmc_ ## name); \
+                #binding-cells = <0>; \
+                tap-ms = <UC_TAP_MS>; \
+                wait-ms = <UC_WAIT_MS>; \
+                bindings = \
+                    <&macro_tap &kp char_0 &kp char_1 &kp char_2 &kp char_3>, \
+                    <&macro_press &kp LALT>, \
+                    <&macro_tap &kp X>, \
+                    <&macro_release &kp LALT>; \
+            }; \
+        }; \
+    };
+
 &lt {
     quick_tap_ms = <200>;
 };
@@ -23,6 +43,8 @@
 &mt {
     quick_tap_ms = <200>;
 };
+
+UC_MACRO(e_grave, N0, N0, E, N8)
 
 / {
     chosen {
@@ -135,7 +157,7 @@
 
         unicode_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &td_uc_u 	&trans  &trans  &trans  &trans
+&trans  &trans  &trans  &e_grave  &trans  &trans  &trans  &td_uc_u 	&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans  &trans 		&trans
