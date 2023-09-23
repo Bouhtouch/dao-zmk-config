@@ -39,7 +39,7 @@
             tap-ms = <0>;
             wait-ms = <0>;
             bindings =
-                <&macro_tap &kp U &kp PLUS &kp F &kp N9>,
+                <&macro_tap &kp N0 &kp N2 &kp N4 &kp N9>,
                 <&macro_press &kp LALT>,
                 <&macro_tap &kp X>,
                 <&macro_release &kp LALT>;
@@ -133,7 +133,7 @@
 
         unicode_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &td_uc_u 	&trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &u_grave 	&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans  &trans 		&trans
