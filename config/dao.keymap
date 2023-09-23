@@ -89,7 +89,7 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&u_grave>, <&u_acute>, <&u_grave_up>, <&u_acute_up>;
-        }
+        };
     };
 
     keymap {
