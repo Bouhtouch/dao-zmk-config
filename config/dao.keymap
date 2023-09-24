@@ -13,8 +13,8 @@
 #define LWR 1
 #define RSE 2
 #define ADJ 3
-#define UC_TAP_MS 10
-#define UC_WAIT_MS 10
+#define UC_TAP_MS 5
+#define UC_WAIT_MS 5
 
 #define HELPER_STRINGIFY(x) #x
 
@@ -28,7 +28,7 @@
                 tap-ms = <UC_TAP_MS>; \
                 wait-ms = <UC_WAIT_MS>; \
                 bindings = \
-                    <&macro_tap &kp char_0 &kp char_1 &kp char_2 &kp char_3>, \
+                    <&macro_tap &kp U &kp PLUS &kp char_0 &kp char_1 &kp char_2 &kp char_3>, \
                     <&macro_press &kp LALT>, \
                     <&macro_tap &kp X>, \
                     <&macro_release &kp LALT>; \
