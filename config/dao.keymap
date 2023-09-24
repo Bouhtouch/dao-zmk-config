@@ -40,7 +40,7 @@
     / { \
         behaviors { \
             name: name { \
-                compatible = "zmk,behavior-macro"; \
+                compatible = "zmk,behavior-tap-dance"; \
                 label = HELPER_STRINGIFY(uctd_ ## name); \
                 #binding-cells = <0>; \
                 tapping-term-ms = <200>; \
