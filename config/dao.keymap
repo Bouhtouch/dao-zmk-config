@@ -36,6 +36,19 @@
         }; \
     };
 
+#define UC_TAPDANCE(name, bind_0, bind_1, bind_2, bind_3) \
+    / { \
+        behaviors { \
+            name: name { \
+                compatible = "zmk,behavior-macro"; \
+                label = HELPER_STRINGIFY(uctd_ ## name); \
+                #binding-cells = <0>; \
+                tapping-term-ms = <200>; \
+                bindings = <bind_0>, <bind_1>, <bind_2>, <bind_3>; \
+            }; \
+        }; \
+    };
+
 &lt {
     quick_tap_ms = <200>;
 };
@@ -44,7 +57,32 @@
     quick_tap_ms = <200>;
 };
 
+// Unicode Chars
+UC_MACRO(a_grave, N0, N0, E, N0)
+UC_MACRO(a_acute, N0, N0, E, N1)
+UC_MACRO(a_grave_up, N0, N0, C, N0)
+UC_MACRO(a_acute_up, N0, N0, C, N1)
+UC_TAPDANCE(td_a_grave, a_grave, a_acute, a_grave_up, a_acute_up)
 UC_MACRO(e_grave, N0, N0, E, N8)
+UC_MACRO(e_acute, N0, N0, E, N9)
+UC_MACRO(e_grave_up, N0, N0, C, N8)
+UC_MACRO(e_acute_up, N0, N0, C, N9)
+UC_TAPDANCE(td_e_grave, e_grave, e_acute, e_grave_up, e_acute_up)
+UC_MACRO(i_grave, N0, N0, E, C)
+UC_MACRO(i_acute, N0, N0, E, D)
+UC_MACRO(i_grave_up, N0, N0, C, C)
+UC_MACRO(i_acute_up, N0, N0, C, D)
+UC_TAPDANCE(td_i_grave, i_grave, i_acute, i_grave_up, i_acute_up)
+UC_MACRO(o_grave, N0, N0, F, N2)
+UC_MACRO(o_acute, N0, N0, F, N3)
+UC_MACRO(o_grave_up, N0, N0, D, N2)
+UC_MACRO(o_acute_up, N0, N0, D, N3)
+UC_TAPDANCE(td_o_grave, o_grave, o_acute, o_grave_up, o_acute_up)
+UC_MACRO(u_grave, N0, N0, F, N9)
+UC_MACRO(u_acute, N0, N0, F, A)
+UC_MACRO(u_grave_up, N0, N0, D, N9)
+UC_MACRO(u_acute_up, N0, N0, D, A)
+UC_TAPDANCE(td_u_grave, u_grave, u_acute, u_grave_up, u_acute_up)
 
 / {
     chosen {
@@ -55,67 +93,6 @@ UC_MACRO(e_grave, N0, N0, E, N8)
 };
 
 / {
-    macros {
-        u_grave: u_grave {
-            compatible = "zmk,behavior-macro";
-            label = "lower case grave u";
-            #binding-cells = <0>;
-            tap-ms = <UC_TAP_MS>;
-            wait-ms = <UC_WAIT_MS>;
-            bindings =
-                <&macro_tap &kp N0 &kp N0 &kp F &kp N9>,
-                <&macro_press &kp LALT>,
-                <&macro_tap &kp X>,
-                <&macro_release &kp LALT>;
-        };
-        u_acute: u_acute {
-            compatible = "zmk,behavior-macro";
-            label = "lower case acute u";
-            #binding-cells = <0>;
-            tap-ms = <UC_TAP_MS>;
-            wait-ms = <UC_WAIT_MS>;
-            bindings = 
-                <&macro_tap &kp N0 &kp N0 &kp F &kp A>,
-                <&macro_press &kp LALT>,
-                <&macro_tap &kp X>,
-                <&macro_release &kp LALT>;
-        };
-        u_grave_up: u_grave_up {
-            compatible = "zmk,behavior-macro";
-            label = "uppercase grave u";
-            #binding-cells = <0>;
-            tap-ms = <UC_TAP_MS>;
-            wait-ms = <UC_WAIT_MS>;
-            bindings =
-                <&macro_tap &kp N0 &kp N0 &kp D &kp N9>,
-                <&macro_press &kp LALT>,
-                <&macro_tap &kp X>,
-                <&macro_release &kp LALT>;
-        };
-        u_acute_up: u_acute_up {
-            compatible = "zmk,behavior-macro";
-            label = "uppercase acute u";
-            #binding-cells = <0>;
-            tap-ms = <UC_TAP_MS>;
-            wait-ms = <UC_WAIT_MS>;
-            bindings = 
-                <&macro_tap &kp N0 &kp N0 &kp D &kp A>,
-                <&macro_press &kp LALT>,
-                <&macro_tap &kp X>,
-                <&macro_release &kp LALT>;
-        };
-    };
-
-    behaviors {
-        td_uc_u: tap_dance_unicode_u {
-            compatible = "zmk,behavior-tap-dance";
-            label = "uc U";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&u_grave>, <&u_acute>, <&u_grave_up>, <&u_acute_up>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -157,10 +134,10 @@ UC_MACRO(e_grave, N0, N0, E, N8)
 
         unicode_layer {
             bindings = <
-&trans  &trans  &trans  &e_grave  &trans  &trans  &trans  &td_uc_u 	&trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 		&trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans 		&trans
+&trans  &trans  		&trans  &td_e_grave 	&trans  &trans  &trans  &td_u_grave 	&td_i_grave  	&td_o_grave  	&trans  &trans
+&trans  &td_a_grave  	&trans  &trans  		&trans  &trans  &trans  &trans 			&trans  		&trans  		&trans  &trans
+&trans  &trans  		&trans  &trans  		&trans  &trans  &trans  &trans 			&trans  		&trans  		&trans  &trans
+                        		&trans  		&trans  &trans  &trans  &trans 			&trans
             >;
         };
     };
