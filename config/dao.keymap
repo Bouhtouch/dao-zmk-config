@@ -22,9 +22,8 @@
                 tap-ms = <UC_TAP_MS>; \
                 wait-ms = <UC_WAIT_MS>; \
                 bindings = \
-                    <&macro_tap &kp U &kp PLUS &kp char_0 &kp char_1 &kp char_2 &kp char_3>, \
                     <&macro_press &kp LALT>, \
-                    <&macro_tap &kp X>, \
+                    <&macro_tap &kp char_0 &kp char_1 &kp char_2 &kp char_3>, \
                     <&macro_release &kp LALT>; \
             }; \
         }; \
